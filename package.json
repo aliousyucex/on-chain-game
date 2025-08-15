@@ -1,0 +1,81 @@
+{
+  "name": "pve-on-chain-game",
+  "version": "1.0.0",
+  "description": "Simplified PvE On-Chain Game with Direct Deposits and Withdrawals on Abstract Chain",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && npm run install:backend && npm run install:frontend && npm run install:contracts",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:contracts": "npm install --save-dev hardhat @nomiclabs/hardhat-ethers @nomiclabs/hardhat-waffle ethereum-waffle chai @openzeppelin/contracts",
+    "create-wallet": "node scripts/create-wallet.js",
+    "examples:admin": "node scripts/admin-examples.js",
+    "examples:user": "echo 'User examples are for frontend - check scripts/user-examples.js'",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:contracts\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:contracts": "npx hardhat node",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run build && serve -s frontend/build",
+    "build": "npm run build:frontend && npm run build:contracts",
+    "build:frontend": "cd frontend && npm run build",
+    "build:contracts": "npx hardhat compile",
+    "test": "npm run test:contracts && npm run test:backend",
+    "test:contracts": "npx hardhat test",
+    "test:backend": "cd backend && npm test",
+    "deploy:contracts": "npx hardhat run scripts/deploy.js",
+    "deploy:contracts:abstract-testnet": "npx hardhat run scripts/deploy.js --network abstract-testnet",
+    "deploy:contracts:abstract-mainnet": "npx hardhat run scripts/deploy.js --network abstract-mainnet",
+    "deploy:contracts:testnet": "npm run deploy:contracts:abstract-testnet",
+    "deploy:contracts:mainnet": "npm run deploy:contracts:abstract-mainnet",
+    "verify:contract:abstract-testnet": "npx hardhat verify --network abstract-testnet",
+    "verify:contract:abstract-mainnet": "npx hardhat verify --network abstract-mainnet",
+    "verify:contract": "npm run verify:contract:abstract-testnet",
+    "clean": "npm run clean:contracts && npm run clean:frontend",
+    "clean:contracts": "npx hardhat clean",
+    "clean:frontend": "cd frontend && rm -rf build",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/pve-on-chain-game.git"
+  },
+  "keywords": [
+    "blockchain",
+    "abstract-chain",
+    "layer2",
+    "defi",
+    "web3",
+    "smart-contracts",
+    "react",
+    "nodejs",
+    "solidity"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/pve-on-chain-game/issues"
+  },
+  "homepage": "https://github.com/yourusername/pve-on-chain-game#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^4.9.6",
+    "chai": "^4.5.0",
+    "concurrently": "^8.2.1",
+    "dotenv": "^16.3.1",
+    "ethereum-waffle": "^4.0.10",
+    "hardhat": "^2.26.1",
+    "serve": "^14.2.1"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
