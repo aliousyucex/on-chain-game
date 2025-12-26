@@ -1,3 +1,5 @@
+# THIS IS VIBE CODING
+
 # 🚀 PvE On-Chain Game - Abstract Chain Edition
 
 A streamlined blockchain-based game system with direct deposits and withdrawals on **Abstract Chain**. No complex Merkle proofs or multi-step confirmations - just simple, single-transaction operations with low gas fees!
